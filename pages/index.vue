@@ -1,9 +1,9 @@
 <template>
-  <VForm t-form-classes="p-4">
+  <VForm t-form-classes="p-4 max-w-[320px]">
     <VInput
       id="teste"
       v-model="model"
-      description="description"
+      description="Description"
       rules="required"
       variant="primary"
     />

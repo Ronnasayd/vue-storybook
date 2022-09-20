@@ -17,6 +17,46 @@ module.exports = {
         xl: "1200px",
         xxl: "1440",
       },
+      lineHeight: [
+        "1.125rem",
+        "1.25rem",
+        "1.375rem",
+        "1.5rem",
+        "1.688rem",
+        "1.875rem",
+        "2rem",
+        "2.563rem",
+        "2.875rem",
+        "3.375rem",
+      ],
+      fontSize: [
+        "0.75rem",
+        "0.875rem",
+        "1rem",
+        "1.125rem",
+        "1.25rem",
+        "1.375rem",
+        "1.5rem",
+        "1.875rem",
+        "2.125rem",
+        "2.5rem",
+      ],
+      colors: {
+        primary: ["#FFBEA5", "#F07446", "#F05A22", "#C94C1D"],
+        secondary: ["#2C515A", "#1F4E5A", "#122C33", "#0C2A31"],
+        success: "#4CBB25",
+        error: "#EC0C0C",
+        info: "#3182CE",
+        warn: "#F1C800",
+        extra: [
+          "#565656",
+          "#F6F8FA",
+          "#FEFEFE",
+          "#1A1A1E",
+          "#AFAFAF"
+        ],
+      },
+      borderWidth: [...new Array(9)].map((el, index) => `${index}px`),
     },
   },
   plugins: [
@@ -47,6 +87,8 @@ module.exports = {
       const headingUtilities = {};
       const inlineLayoutsUtilities = {};
       const stackLayoutsUtilities = {};
+
+
       for (let index = 0; index < 10; index++) {
         headingUtilities[`.heading-${index}`] = {
           fontSize: theme(`fontSize.${index}`),

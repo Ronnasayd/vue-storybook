@@ -10,7 +10,7 @@
       <p
         :class="[
           getAttr('TDescriptionClasses'),
-          'mb-1 text-gray-600 text-sm md:text-base disable:text-gray-400',
+          'mb-1 text-extra-0 heading-2 disable:text-gray-400',
         ]"
       >
         {{ getAttr('description') }}
@@ -21,12 +21,12 @@
         :name="id"
         :class="[
           getAttr('TInputClasses'),
-          'text-gray-600 w-full border border-gray-300 rounded h-[40px] p-2 focus:ring-1 focus:ring-blue-700 focus:outline-none active:ring-transparent mb-2 disable:text-gray-400 error:border-red-600 error:focus:ring-red-700 error:text-red-600 primary:focus:ring-orange-400 primary:focus:ring-2',
+          'text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] focus:ring-1 focus:ring-secondary-2 focus:outline-none active:ring-transparent mb-2 disable:text-extra-4 disable:bg-[#E2E2E2] error:border-error error:focus:ring-0 error:text-error primary:focus:ring-primary-2 secondary:focus:ring-secondary-2',
         ]"
         @change="onChange"
         @input="onInput"
       />
-      <small :class="[getAttr('TErrorClasses'), 'text-red-600']">{{
+      <small :class="[getAttr('TErrorClasses'), 'text-error']">{{
         errors[0]
       }}</small>
     </label>
