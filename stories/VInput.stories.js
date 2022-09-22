@@ -7,11 +7,11 @@ export default {
   argTypes: {
     type: {
       control: { type: "select" },
-      options: ["text", "number", "password", "email"],
+      options: ["text", "number", "password", "email","hidden","tel"],
     },
     variant: {
       control: { type: "select" },
-      options: ["None","primary"],
+      options: ["None","primary","secondary"],
     },
   },
 };
@@ -26,10 +26,12 @@ const Template = (args, { argTypes }) => {
     },
     components: { VInput },
     template:
-      '<VInput @change="onChange" @input="onInput" v-model="model" v-bind="$props" />',
+      '<VInput @change="onChange" @input="onInput" @leftIconClick="onLeftIconClick" @rightIconClick="onRightIconClick" v-model="model" v-bind="$props" />',
     methods: {
       onChange: action("change"),
       onInput: action("input"),
+      onLeftIconClick: action('leftIconClick'),
+      onRightIconClick: action('rightIconClick')
     },
   };
 };
@@ -42,9 +44,18 @@ Default.args = {
   type: "text",
   description: "Description",
   disabled: false,
-  "TLabelClasses": "",
-  "TDescriptionClasses": "",
-  "TInputClasses": "",
-  "TErrorClasses": "",
+  TLabelClasses: "",
+  TDescriptionClasses: "",
+  TInputWrapperClasses:"",
+  TLeftIconClasse:"",
+  TRightIconClasses:"",
+  TInputClasses: "",
+  TErrorClasses: "",
   rules: "required",
+  leftIcon:"",
+  rightIcon:"",
+  min:"",
+  max:"",
+  maxLength:"",
+  readonly:false,
 };

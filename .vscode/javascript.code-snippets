@@ -1,0 +1,25 @@
+{
+  "Default VInput": {
+    "prefix": "vinput",
+    "body": [
+      "<VInput",
+      "  id=\"$1\"",
+      "  v-model=\"$2\"",
+      "  description=\"$3\"",
+      "  rules=\"$4\"",
+      "  variant=\"$5\"",
+      "  placeholder=\"$6\"",
+      "  leftIcon=\"$7\"",
+      "  rightIcon=\"$8\"",
+      "  TLabelClasses=\"$9\"",
+      "  TDescriptionClasses=\"$10\"",
+      "  TInputWrapperClasses=\"$11\"",
+      "  TLeftIconClasses=\"$12\"",
+      "  TInputClasses=\"$13\"",
+      "  TRightIconClasses=\"$14\"",
+      "  TErrorClasses=\"$15\"",
+      "    />"
+    ],
+    "description": "Default VInput"
+  }
+}

@@ -44,8 +44,9 @@ export default {
     },
     postcss:{
       plugins:{
+        'tailwindcss/nesting':{},
         tailwindcss:join(__dirname, 'tailwind.config.js'),
-        autoprefixer:{}
+        autoprefixer:{},
       }
     }
   },

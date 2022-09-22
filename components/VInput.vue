@@ -2,30 +2,53 @@
   <ValidationProvider v-slot="{ errors }" tag="div" :rules="getAttr('rules')">
     <label
       :for="id"
-      :class="[getAttr('TLabelClasses'), 'l-stack-start']"
-      :data-disable="disabled"
+      :class="[getAttr('TLabelClasses'), 'l-stack-start group ']"
+      :data-disabled="disabled"
       :data-error="!!errors[0]"
       :data-variant="variant"
+      :data-focus="focusState"
     >
       <p
         :class="[
           getAttr('TDescriptionClasses'),
-          'mb-1 text-extra-0 heading-2 disable:text-gray-400',
+          'mb-1 text-extra-0 text-heading-2 disable:text-gray-400 ',
         ]"
       >
         {{ getAttr('description') }}
       </p>
-      <input
-        v-bind="{ ...$props }"
-        :value="getAttr('value')"
-        :name="id"
+      <div
         :class="[
-          getAttr('TInputClasses'),
-          'text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] focus:ring-1 focus:ring-secondary-2 focus:outline-none active:ring-transparent mb-2 disable:text-extra-4 disable:bg-[#E2E2E2] error:border-error error:focus:ring-0 error:text-error primary:focus:ring-primary-2 secondary:focus:ring-secondary-2',
+          getAttr('TInputWrapperClasses'),
+          customVariantClasse('input-wrapper'),
+          'cfocus:border-primary-2 error:border-error error:text-error l-inline-start-center-nowrap gap-1 text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] mb-2 cdisabled:text-extra-4 cdisabled:bg-[#E2E2E2]',
         ]"
-        @change="onChange"
-        @input="onInput"
-      />
+      >
+        <img
+          v-if="!!getAttr('leftIcon')"
+          :src="getAttr('leftIcon')"
+          :class="[getAttr('TLeftIconClasses'), 'w-[24px] h-[24px]']"
+          @click="onLeftIconClick"
+        />
+        <input
+          v-bind="{ ...$props }"
+          :value="getAttr('value')"
+          :name="id"
+          :class="[
+            getAttr('TInputClasses'),
+            'w-full h-full focus:outline-none ',
+          ]"
+          @change="onChange"
+          @input="onInput"
+          @focus="handleFocus"
+          @focusout="handleFocusOut"
+        />
+        <img
+          v-if="!!getAttr('rightIcon')"
+          :src="getAttr('rightIcon')"
+          :class="[getAttr('TRightIconClasses'), 'w-[24px] h-[24px]']"
+          @click="onRightIconClick"
+        />
+      </div>
       <small :class="[getAttr('TErrorClasses'), 'text-error']">{{
         errors[0]
       }}</small>
@@ -39,17 +62,33 @@ export default {
   components: {
     ValidationProvider,
   },
+
   props: {
     type: {
       type: String,
-      validator: (value) => ['text', 'number', 'password'].includes(value),
+      validator: (value) =>
+        ['text', 'number', 'password', 'email', 'tel', 'hidden'].includes(
+          value
+        ),
       default: 'text',
     },
     id: { type: String, required: true },
     placeholder: { type: String, default: '' },
-    variant: { type: String, default: '' },
+    variant: {
+      type: String,
+      default: '',
+      validator: (value) => ['primary', 'secondary', ''].includes(value),
+    },
     disabled: { type: Boolean, default: false },
+    min: { type: String, default: '' },
+    max: { type: String, default: '' },
+    maxlength: { type: String, default: '' },
+    readonly: { type: Boolean, default: false },
   },
+  data() {
+    return { focusState: false }
+  },
+
   methods: {
     onChange(event) {
       this.$emit('change', event.target.value)
@@ -57,12 +96,47 @@ export default {
     onInput(event) {
       this.$emit('input', event.target.value)
     },
+    onLeftIconClick(event) {
+      this.$emit('leftIconClick')
+    },
+    onRightIconClick(event) {
+      this.$emit('rightIconClick')
+    },
+
+    /**
+     * @param {string} attr
+     */
     getAttr(attr) {
       return this.$attrs?.[attr] ?? ''
+    },
+    handleFocus() {
+      this.focusState = true
+    },
+    handleFocusOut() {
+      this.focusState = false
+    },
+    customVariantClasse(prefix) {
+      return this.variant ? prefix + '-' + this.variant : ''
     },
   },
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
+[data-variant='primary'] {
+  &[data-focus='true'] .input-wrapper-primary {
+    @apply border-primary-2;
+  }
+  &[data-error='true'] .input-wrapper-primary {
+    @apply border-error;
+  }
+}
+[data-variant='secondary'] {
+  &[data-focus='true'] .input-wrapper-secondary {
+    @apply border-secondary-2;
+  }
+  &[data-error='true'] .input-wrapper-secondary {
+    @apply border-error;
+  }
+}
 </style>

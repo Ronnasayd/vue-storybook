@@ -22,7 +22,8 @@ module.exports = {
           implementation: require("postcss"),
           postcssOptions: {
             plugins: {
-              tailwindcss: {}, // or you can nest your options entirely here
+              'tailwindcss/nesting':{},
+              tailwindcss: path.join(__dirname,'..', 'tailwind.config.js'), // or you can nest your options entirely here
               autoprefixer: {
                 // autoprefixer options
               },
@@ -33,24 +34,27 @@ module.exports = {
     }
   ],
   "framework": "@storybook/vue",
-  // webpackFinal: async (config) => {
-  //   config.module.rules.push({
-  //     test: /\.css$/,
-  //     use: [
-  //       {
-  //         loader: 'postcss-loader',
-  //         options: {
-  //           postcssOptions: {
-  //             plugins: [
-  //               require('tailwindcss'),
-  //               require('autoprefixer'),
-  //             ],
-  //           },
-  //         },
-  //       },
-  //     ],
-  //     include: path.resolve(__dirname, '../'),
-  //   })
-  //   return config
-  // },
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.postcss$/,
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: [
+                require('tailwindcss/nesting'),
+                require('tailwindcss'),
+                require('autoprefixer'),
+              ],
+            },
+          },
+        },
+      ],
+      include: path.resolve(__dirname, '../'),
+    })
+    return config
+  },
 }

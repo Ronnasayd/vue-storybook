@@ -17,30 +17,19 @@ module.exports = {
         xl: "1200px",
         xxl: "1440",
       },
-      lineHeight: [
-        "1.125rem",
-        "1.25rem",
-        "1.375rem",
-        "1.5rem",
-        "1.688rem",
-        "1.875rem",
-        "2rem",
-        "2.563rem",
-        "2.875rem",
-        "3.375rem",
-      ],
-      fontSize: [
-        "0.75rem",
-        "0.875rem",
-        "1rem",
-        "1.125rem",
-        "1.25rem",
-        "1.375rem",
-        "1.5rem",
-        "1.875rem",
-        "2.125rem",
-        "2.5rem",
-      ],
+      
+      fontSize:{
+        'heading-1':[`${12/16}rem`,`${16/16}rem`], // 12px 16px
+        'heading-2':[`${14/16}rem`,`${19.1/16}rem`], // 14px 19.1px
+        'heading-3':[`${16/16}rem`,`${20/16}rem`], // 16px 20px
+        'heading-4':[`${18/16}rem`,`${24/16}rem`], // 18px 24px
+        'heading-5':[`${20/16}rem`,`${28/16}rem`], // 20px 28px
+        'heading-6':[`${24/16}rem`,`${32/16}rem`], // 24px 32px
+        'heading-7':[`${28/16}rem`,`${40/16}rem`], // 28px 40px
+        'heading-8':[`${32/16}rem`,`${48/16}rem`], // 32px 48px
+        'heading-9':[`${40/16}rem`,`${54/16}rem`], // 40px 54px
+      },
+      
       colors: {
         primary: ["#FFBEA5", "#F07446", "#F05A22", "#C94C1D"],
         secondary: ["#2C515A", "#1F4E5A", "#122C33", "#0C2A31"],
@@ -59,12 +48,17 @@ module.exports = {
       borderWidth: [...new Array(9)].map((el, index) => `${index}px`),
     },
   },
+  variants:{
+    extend:{
+    }
+  },
   plugins: [
-    plugin(function({addVariant}){
-      addVariant('error',['&[data-error="true"]','[data-error="true"] &']),
-      addVariant('disable',['&[data-disable="true"]','[data-disable="true"] &'])
-      addVariant('primary',['&[data-variant="primary"]','[data-variant="primary"] &'])
-      addVariant('secondary',['&[data-variant="secondary"]','[data-variant="secondary"] &'])
+    plugin(function({addVariant,e}){
+      addVariant('error',[`&[data-error=true]`,'[data-error=true] &'])
+      addVariant('cdisabled',['&[data-disabled=true]','[data-disabled=true] &'])
+      addVariant('cfocus',['&[data-focus=true]','[data-focus=true] &'])
+      addVariant('primary',['&[data-variant=primary]','[data-variant=primary] &'])
+      addVariant('secondary',['&[data-variant=secondary]','[data-variant=secondary] &'])
     }),
     plugin(function ({ addUtilities, theme }) {
       const justifyContent = {
@@ -84,17 +78,8 @@ module.exports = {
         baseline: "baseline",
       };
 
-      const headingUtilities = {};
       const inlineLayoutsUtilities = {};
       const stackLayoutsUtilities = {};
-
-
-      for (let index = 0; index < 10; index++) {
-        headingUtilities[`.heading-${index}`] = {
-          fontSize: theme(`fontSize.${index}`),
-          lineHeight: theme(`lineHeight.${index}`),
-        };
-      }
 
       for (const justify in justifyContent) {
         for (const items in alignItems) {
@@ -172,7 +157,6 @@ module.exports = {
           justifyContent: "flex-start",
         },
       };
-      addUtilities(headingUtilities, ["responsive"]);
       addUtilities(layoutUtilities, ["responsive"]);
       addUtilities(inlineLayoutsUtilities, ["responsive"]);
       addUtilities(stackLayoutsUtilities, ["responsive"]);

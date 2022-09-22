@@ -10,6 +10,7 @@
 </template>
 <script>
 import { ValidationObserver } from 'vee-validate'
+
 export default {
   name: 'VForm',
   components: {
