@@ -1,9 +1,5 @@
 <template>
-  <VForm
-    t-form-classes="p-4 max-w-[400px]"
-    @submit="handleSubmit"
-    v-slot="{ invalid }"
-  >
+  <VForm TFormClasses="p-4 max-w-[400px]" @submit="handleSubmit">
     <VInput
       id="teste"
       v-model="model"
@@ -21,7 +17,7 @@
       TRightIconClasses=""
       TErrorClasses=""
     />
-    <button :disabled="invalid">enviar</button>
+    <VButton type="submit">enviar</VButton>
   </VForm>
 </template>
 

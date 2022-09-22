@@ -57,8 +57,11 @@ module.exports = {
       addVariant('error',[`&[data-error=true]`,'[data-error=true] &'])
       addVariant('cdisabled',['&[data-disabled=true]','[data-disabled=true] &'])
       addVariant('cfocus',['&[data-focus=true]','[data-focus=true] &'])
-      addVariant('primary',['&[data-variant=primary]','[data-variant=primary] &'])
-      addVariant('secondary',['&[data-variant=secondary]','[data-variant=secondary] &'])
+
+      const variants = ['primary','secondary']
+      variants.forEach(variant=>{
+        addVariant(variant,[`&[data-variant=${variant}]`,`[data-variant=${variant}] &`])
+      })
     }),
     plugin(function ({ addUtilities, theme }) {
       const justifyContent = {

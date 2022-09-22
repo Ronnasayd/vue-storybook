@@ -21,5 +21,16 @@
       "    />"
     ],
     "description": "Default VInput"
+  },
+  "VForm default": {
+    "prefix": "vform",
+    "body": [
+      "<VForm",
+      "  TFormClasses=\"$1\"",
+      "  @submit=\"$2\"",
+      "  v-slot=\"{ invalid }\"",
+      ">$3</VForm>"
+    ],
+    "description": "VForm default"
   }
 }
