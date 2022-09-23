@@ -5,11 +5,43 @@ export default {
   title: 'Documentation/VButton',
   component: VButton,
   argTypes: {
+    class: {
+      description: 'button custom classes',
+      table: {
+        category: 'Attributes',
+        type: {
+          summary: 'string',
+          // detail: 'Something really really long',
+        },
+      },
+    },
+    text: {
+      description: 'button text',
+      table: {
+        category: 'Attributes',
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    click: {
+      description: 'When a button is clicked',
+      table: {
+        type: {
+          summary: 'Function',
+        },
+      },
+    },
+    disabled: {
+      description: 'When a button is disabled',
+    },
     type: {
+      description: 'valid types of buttons - [button|submit"]',
       control: { type: 'select' },
       options: ['button', 'submit'],
     },
     variant: {
+      description: 'One of possible button variants',
       control: { type: 'select' },
       options: [
         'None',
@@ -25,8 +57,15 @@ export default {
 const Template = (args, { argTypes }) => {
   return {
     props: Object.keys(argTypes),
+    data() {
+      return { args, text: args.text }
+    },
     components: { VButton },
-    template: '<VButton @click="onClick" v-bind="$props" >Enviar</VButton>',
+    template: `
+    <VButton 
+      @click="onClick" 
+      v-bind="{...args,...$props}"  
+    >{{text}}</VButton>`,
     methods: {
       onClick: action('click'),
     },
@@ -36,11 +75,12 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
+  /** Tipo de botão válido  */
   type: 'button',
   disabled: false,
   class: 'max-w-[300px]',
+  text: 'Enviar',
 }
-
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
