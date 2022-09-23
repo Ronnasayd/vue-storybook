@@ -2,7 +2,7 @@
   <ValidationProvider v-slot="{ errors }" tag="div" :rules="getAttr('rules')">
     <label
       :for="id"
-      :class="[getAttr('TLabelClasses'), 'l-stack-start group ']"
+      :class="[getAttr('t-label-classes'), 'l-stack-start group ']"
       :data-disabled="disabled"
       :data-error="!!errors[0]"
       :data-variant="variant"
@@ -10,23 +10,23 @@
     >
       <p
         :class="[
-          getAttr('TDescriptionClasses'),
-          'mb-1 text-extra-0 text-heading-2 disable:text-gray-400 ',
+          getAttr('t-description-classes'),
+          'mb-1 text-s2 sm:text-s3 text-extra-0 cdisabled:text-extra-4',
         ]"
       >
         {{ getAttr('description') }}
       </p>
       <div
         :class="[
-          getAttr('TInputWrapperClasses'),
+          getAttr('t-input-wrapper-classes'),
           customVariantClasse('input-wrapper'),
           'cfocus:border-primary-2 error:border-error error:text-error l-inline-start-center-nowrap gap-1 text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] mb-2 cdisabled:text-extra-4 cdisabled:bg-[#E2E2E2]',
         ]"
       >
         <img
-          v-if="!!getAttr('leftIcon')"
-          :src="getAttr('leftIcon')"
-          :class="[getAttr('TLeftIconClasses'), 'w-[24px] h-[24px]']"
+          v-if="!!getAttr('left-icon')"
+          :src="getAttr('left-icon')"
+          :class="[getAttr('t-left-icon-classes'), 'w-[24px] h-[24px]']"
           @click="onLeftIconClick"
         />
         <input
@@ -34,7 +34,7 @@
           :value="getAttr('value')"
           :name="id"
           :class="[
-            getAttr('TInputClasses'),
+            getAttr('t-input-classes'),
             'w-full h-full focus:outline-none ',
           ]"
           @change="onChange"
@@ -43,13 +43,13 @@
           @focusout="handleFocusOut"
         />
         <img
-          v-if="!!getAttr('rightIcon')"
-          :src="getAttr('rightIcon')"
-          :class="[getAttr('TRightIconClasses'), 'w-[24px] h-[24px]']"
+          v-if="!!getAttr('right-icon')"
+          :src="getAttr('right-icon')"
+          :class="[getAttr('t-right-icon-classes'), 'w-[24px] h-[24px]']"
           @click="onRightIconClick"
         />
       </div>
-      <small :class="[getAttr('TErrorClasses'), 'text-error']">{{
+      <small :class="[getAttr('t-error-classes'), 'text-error']">{{
         errors[0]
       }}</small>
     </label>
@@ -82,7 +82,7 @@ export default {
     disabled: { type: Boolean, default: false },
     min: { type: String, default: '' },
     max: { type: String, default: '' },
-    maxlength: { type: String, default: '' },
+    maxLength: { type: String, default: '' },
     readonly: { type: Boolean, default: false },
   },
   data() {

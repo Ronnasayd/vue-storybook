@@ -1,15 +1,16 @@
-const path  = require("path")
+const path = require('path')
 module.exports = {
-  "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+  staticDirs: ['../static'],
+  stories: [
+    '../stories/**/*.stories.mdx',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     {
-      name: "@storybook/addon-postcss",
+      name: '@storybook/addon-postcss',
       options: {
         cssLoaderOptions: {
           // When you have splitted your css over multiple files
@@ -18,12 +19,12 @@ module.exports = {
         },
         postcssLoaderOptions: {
           // When using postCSS 8
-          
-          implementation: require("postcss"),
+
+          implementation: require('postcss'),
           postcssOptions: {
             plugins: {
-              'tailwindcss/nesting':{},
-              tailwindcss: path.join(__dirname,'..', 'tailwind.config.js'), // or you can nest your options entirely here
+              'tailwindcss/nesting': {},
+              tailwindcss: path.join(__dirname, '..', 'tailwind.config.js'), // or you can nest your options entirely here
               autoprefixer: {
                 // autoprefixer options
               },
@@ -31,15 +32,15 @@ module.exports = {
           },
         },
       },
-    }
+    },
   ],
-  "framework": "@storybook/vue",
+  framework: '@storybook/vue',
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.postcss$/,
       use: [
-        "style-loader",
-        "css-loader",
+        'style-loader',
+        'css-loader',
         {
           loader: 'postcss-loader',
           options: {

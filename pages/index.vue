@@ -1,5 +1,5 @@
 <template>
-  <VForm TFormClasses="p-4 max-w-[400px]" @submit="handleSubmit">
+  <VForm t-form-classes="p-4 max-w-[400px]" @submit="handleSubmit">
     <VInput
       id="teste"
       v-model="model"
@@ -7,17 +7,24 @@
       rules="required"
       variant="secondary"
       placeholder="description"
-      leftIcon=""
-      :rightIcon="eyeSVG"
-      TLabelClasses=""
-      TDescriptionClasses=""
-      TInputWrapperClasses=""
-      TLeftIconClasses=""
-      TInputClasses=""
-      TRightIconClasses=""
-      TErrorClasses=""
+      left-icon=""
+      :right-icon="eyeSVG"
+      t-label-classes="bg-primary-2"
+      t-description-classes=""
+      t-input-wrapper-classes=""
+      t-left-icon-classes=""
+      t-input-classes=""
+      t-right-icon-classes=""
+      t-error-classes=""
+      max-length="2"
     />
-    <VButton type="submit">enviar</VButton>
+    <VButton
+      type="submit"
+      class=""
+      :disabled="false"
+      variant="outline_secondary"
+      >Enviar</VButton
+    >
   </VForm>
 </template>
 

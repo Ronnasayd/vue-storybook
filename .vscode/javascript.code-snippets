@@ -9,7 +9,7 @@
       "  rules=\"$4\"",
       "  variant=\"$5\"",
       "  placeholder=\"$6\"",
-      "  leftIcon=\"$7\"",
+      "  left-icon=\"$7\"",
       "  rightIcon=\"$8\"",
       "  TLabelClasses=\"$9\"",
       "  TDescriptionClasses=\"$10\"",

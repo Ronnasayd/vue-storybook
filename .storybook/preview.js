@@ -1,7 +1,8 @@
 // import "!style-loader!css-loader!postcss-loader!tailwindcss/tailwind.css";
-import "tailwindcss/tailwind.css";
+import 'tailwindcss/tailwind.css'
+import '../plugins/veeValidate.js'
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,

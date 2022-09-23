@@ -1,61 +1,67 @@
-import { action } from "@storybook/addon-actions";
-import VInput from "../components/VInput.vue";
+import { action } from '@storybook/addon-actions'
+import VInput from '../components/VInput.vue'
+import Icon from '../static/icons/eye.svg'
 
 export default {
-  title: "Documentation/VInput",
+  title: 'Documentation/VInput',
   component: VInput,
   argTypes: {
     type: {
-      control: { type: "select" },
-      options: ["text", "number", "password", "email","hidden","tel"],
+      control: { type: 'select' },
+      options: ['text', 'number', 'password', 'email', 'hidden', 'tel'],
     },
     variant: {
-      control: { type: "select" },
-      options: ["None","primary","secondary"],
+      control: { type: 'select' },
+      options: ['None', 'primary', 'secondary'],
     },
   },
-};
+}
 
-const Template = (args, { argTypes }) => {
+const Template = (args) => {
   return {
-    props: Object.keys(argTypes),
-    data() {
-      return {
-        model: "",
-      };
-    },
     components: { VInput },
-    template:
-      '<VInput @change="onChange" @input="onInput" @leftIconClick="onLeftIconClick" @rightIconClick="onRightIconClick" v-model="model" v-bind="$props" />',
-    methods: {
-      onChange: action("change"),
-      onInput: action("input"),
-      onLeftIconClick: action('leftIconClick'),
-      onRightIconClick: action('rightIconClick')
+    data() {
+      return { model: '', args }
     },
-  };
-};
+    props: Object.keys(args),
+    template: `
+      <VInput 
+        v-model="model" 
+        v-bind="{...args,...$props}" 
+        @input="onInput"
+        @change="onChange"
+        @leftIconClick="onLeftIconClick"
+        @rightIconClick="onRightIconClick"
+      />`,
+    methods: {
+      onChange: action('change'),
+      onInput: action('input'),
+      onLeftIconClick: action('leftIconClick'),
+      onRightIconClick: action('rightIconClick'),
+    },
+  }
+}
 
-export const Default = Template.bind({});
+export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
-  placeholder: "placeholder",
-  id: "input-test",
-  type: "text",
-  description: "Description",
+  placeholder: 'placeholder',
+  id: 'input-test',
+  type: 'text',
+  description: 'Description',
   disabled: false,
-  TLabelClasses: "",
-  TDescriptionClasses: "",
-  TInputWrapperClasses:"",
-  TLeftIconClasse:"",
-  TRightIconClasses:"",
-  TInputClasses: "",
-  TErrorClasses: "",
-  rules: "required",
-  leftIcon:"",
-  rightIcon:"",
-  min:"",
-  max:"",
-  maxLength:"",
-  readonly:false,
-};
+  readonly: false,
+  rules: 'required',
+  't-label-classes': '',
+  't-description-classes': '',
+  't-input-wrapper-classes': '',
+  't-left-icon-classes': '',
+  't-right-icon-classes': '',
+  't-input-classes': '',
+  't-error-classes': '',
+  'left-icon': Icon,
+  'right-icon': '',
+  min: '',
+  max: '',
+  maxLength: '',
+}

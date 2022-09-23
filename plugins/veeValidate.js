@@ -1,19 +1,18 @@
-import { extend, ValidationObserver, ValidationProvider } from "vee-validate";
-import Vue from "vue";
+import { extend } from 'vee-validate'
 
 export const required = {
   validate(value) {
     return {
       required: true,
-      valid: !["", null, undefined].includes(value),
-    };
+      valid: !['', null, undefined].includes(value),
+    }
   },
   // message: "is {_field_} required",
-  message: "Este campo é obrigatório",
+  message: 'Este campo é obrigatório',
   computesRequired: true,
-};
+}
 
-extend("required", required);
+extend('required', required)
 
-Vue.component("ValidationProvider", ValidationProvider)
-Vue.component("ValidationObserver", ValidationObserver)
+// Vue.component("ValidationProvider", ValidationProvider)
+// Vue.component("ValidationObserver", ValidationObserver)
