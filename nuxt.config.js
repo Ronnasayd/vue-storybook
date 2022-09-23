@@ -1,4 +1,4 @@
-import { join } from "path"
+import { join } from 'path'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -19,9 +19,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "~/plugins/veeValidate", ssr: false },
-  ],
+  plugins: [{ src: '~/plugins/veeValidate', ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -39,15 +37,14 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config, { isDev, isClient }) {
-
+    extend(config, { isDev, isClient }) {},
+    postcss: {
+      plugins: {
+        'tailwindcss/nesting': {},
+        '../postcss-remove-custom-variants': {},
+        tailwindcss: join(__dirname, 'tailwind.config.js'),
+        autoprefixer: {},
+      },
     },
-    postcss:{
-      plugins:{
-        'tailwindcss/nesting':{},
-        tailwindcss:join(__dirname, 'tailwind.config.js'),
-        autoprefixer:{},
-      }
-    }
   },
 }

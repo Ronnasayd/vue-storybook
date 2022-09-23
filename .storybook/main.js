@@ -22,13 +22,14 @@ module.exports = {
 
           implementation: require('postcss'),
           postcssOptions: {
-            plugins: {
-              'tailwindcss/nesting': {},
-              tailwindcss: path.join(__dirname, '..', 'tailwind.config.js'), // or you can nest your options entirely here
-              autoprefixer: {
-                // autoprefixer options
-              },
-            },
+            plugins: [
+              require('tailwindcss/nesting'),
+              require('../postcss-remove-custom-variants'),
+              require('tailwindcss')(
+                path.join(__dirname, '..', 'tailwind.config.js')
+              ),
+              require('autoprefixer'),
+            ],
           },
         },
       },
@@ -47,6 +48,7 @@ module.exports = {
             postcssOptions: {
               plugins: [
                 require('tailwindcss/nesting'),
+                require('../postcss-remove-custom-variants'),
                 require('tailwindcss'),
                 require('autoprefixer'),
               ],

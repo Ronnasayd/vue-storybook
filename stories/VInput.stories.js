@@ -52,7 +52,7 @@ Default.args = {
   disabled: false,
   readonly: false,
   rules: 'required',
-  't-label-classes': '',
+  't-label-classes': 'max-w-[400px]',
   't-description-classes': '',
   't-input-wrapper-classes': '',
   't-left-icon-classes': '',

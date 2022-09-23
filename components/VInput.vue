@@ -11,7 +11,7 @@
       <p
         :class="[
           getAttr('t-description-classes'),
-          'mb-1 text-s2 sm:text-s3 text-extra-0 cdisabled:text-extra-4',
+          'mb-1 text-s2 sm:text-s3 text-extra-0 c-disabled:text-extra-4 ',
         ]"
       >
         {{ getAttr('description') }}
@@ -20,7 +20,7 @@
         :class="[
           getAttr('t-input-wrapper-classes'),
           customVariantClasse('input-wrapper'),
-          'cfocus:border-primary-2 error:border-error error:text-error l-inline-start-center-nowrap gap-1 text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] mb-2 cdisabled:text-extra-4 cdisabled:bg-[#E2E2E2]',
+          'error:c-focus:border-error primary:c-focus:border-primary-2 secondary:c-focus:border-secondary-2 c-focus:border-primary-2 error:border-error error:text-error l-inline-start-center-nowrap gap-1 text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] mb-2 c-disabled:text-extra-4 c-disabled:bg-[#E2E2E2]',
         ]"
       >
         <img
@@ -122,21 +122,3 @@ export default {
 }
 </script>
 
-<style lang="postcss" scoped>
-[data-variant='primary'] {
-  &[data-focus='true'] .input-wrapper-primary {
-    @apply border-primary-2;
-  }
-  &[data-error='true'] .input-wrapper-primary {
-    @apply border-error;
-  }
-}
-[data-variant='secondary'] {
-  &[data-focus='true'] .input-wrapper-secondary {
-    @apply border-secondary-2;
-  }
-  &[data-error='true'] .input-wrapper-secondary {
-    @apply border-error;
-  }
-}
-</style>

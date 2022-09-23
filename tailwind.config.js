@@ -61,13 +61,23 @@ module.exports = {
         addVariant(variant, [
           `&[data-variant=${variant}]`,
           `[data-variant=${variant}] &`,
+          `[data-variant=${variant}]&`,
         ])
       })
-      addVariant('cfocus', ['&[data-focus=true]', '[data-focus=true] &'])
-      addVariant('error', [`&[data-error=true]`, '[data-error=true] &'])
-      addVariant('cdisabled', [
+      addVariant('c-focus', [
+        '&[data-focus=true]',
+        '[data-focus=true] &',
+        '[data-focus=true]&',
+      ])
+      addVariant('error', [
+        `&[data-error=true]`,
+        '[data-error=true] &',
+        '[data-error=true]&',
+      ])
+      addVariant('c-disabled', [
         '&[data-disabled=true]',
         '[data-disabled=true] &',
+        '[data-disabled=true]&',
       ])
     }),
     plugin(function ({ addUtilities, theme }) {
