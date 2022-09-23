@@ -39,6 +39,7 @@
     "@storybook/manager-webpack4": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue": "^6.5.12",
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.11",
     "babel-loader": "^8.2.5",
     "css-loader": "^4.2.0",

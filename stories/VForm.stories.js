@@ -16,9 +16,9 @@ const Template = (args) => {
     },
     // props: Object.keys(args),
     template: `
-    <VForm @submit="onSubmit" v-bind="args">
-      <VInput v-model="model" id="teste" rules="required" description="Description"/>
-      <VButton type="submit">submit</VButton>
+    <VForm @submit="onSubmit" v-bind="args" v-slot="{invalid}">
+      <VInput v-model.lazy="model" id="teste" rules="required" description="Description"/>
+      <VButton type="submit" variant="secondary" :disabled="invalid">submit</VButton>
     </VForm>`,
     methods: {
       onSubmit: action('submit'),

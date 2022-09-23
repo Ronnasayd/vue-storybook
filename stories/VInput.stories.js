@@ -26,7 +26,7 @@ const Template = (args) => {
     props: Object.keys(args),
     template: `
       <VInput 
-        v-model="model" 
+        v-model.lazy="model" 
         v-bind="{...args,...$props}" 
         @input="onInput"
         @change="onChange"

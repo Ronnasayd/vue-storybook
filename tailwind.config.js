@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        check: `url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e")`,
+        radio: `url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e")`,
+      },
       boxShadow: {
         button: '0px 2px 4px rgba(0, 0, 0, 0.2)',
       },
@@ -37,11 +41,21 @@ module.exports = {
       colors: {
         primary: ['#FFBEA5', '#F07446', '#F05A22', '#C94C1D'],
         secondary: ['#2C515A', '#1F4E5A', '#122C33', '#0C2A31'],
-        success: '#4CBB25',
-        error: '#EC0C0C',
-        info: '#3182CE',
-        warn: '#F1C800',
-        extra: ['#565656', '#F6F8FA', '#FEFEFE', '#1A1A1E', '#AFAFAF'],
+        success: { light: '#88F199', dark: '#4CBB25' },
+        error: { light: '#FF5454', dark: '#EC0C0C' },
+        info: '#88CBF1',
+        warn: '#F4D76A',
+        extra: [
+          '#FEFEFE',
+          '#F6F8FA',
+          '#E2E2E2',
+          '#AFAFAF',
+          '#939393',
+          '#565656',
+          '#1A1A1E',
+          '#A83F18',
+          '#EDF2FA',
+        ],
       },
       borderWidth: [...new Array(9)].map((el, index) => `${index}px`),
     },
@@ -50,6 +64,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/forms'),
     plugin(function ({ addVariant, e }) {
       const variants = [
         'primary',
@@ -182,11 +197,4 @@ module.exports = {
       addUtilities(stackLayoutsUtilities, ['responsive'])
     }),
   ],
-  // ...(process.env.STORYBOOK && { safelist: [{ pattern: /.*/ }] }),
-  // ...(process.env.STORYBOOK && { safelist: [
-  //   { pattern: /bg-.*/ },
-  //   { pattern: /text-.*/ },
-  //   { pattern: /w-.*/ },
-  //   { pattern: /h-.*/ }
-  // ] }),
 }

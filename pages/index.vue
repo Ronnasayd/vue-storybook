@@ -6,7 +6,7 @@
   >
     <VInput
       id="teste"
-      v-model="model"
+      v-model.lazy="text"
       description="Description"
       rules="required"
       variant="secondary"
@@ -20,7 +20,41 @@
       t-input-classes=""
       t-right-icon-classes=""
       t-error-classes=""
-      max-length="2"
+      max-length=""
+    />
+    <VCheckbox
+      id="checkbox"
+      v-model="checkbox"
+      :disabled="invalid"
+      description="Description"
+      t-label-classes=""
+      t-description-classes=""
+      t-input-classes=""
+      t-error-classes=""
+    />
+    <VRadio
+      id="radio1"
+      value="radio1"
+      name="radio"
+      :disabled="invalid"
+      description="Radio 1"
+      t-label-classes=""
+      t-description-classes=""
+      t-input-classes=""
+      t-error-classes=""
+      @change="(value) => (radio = value)"
+    />
+    <VRadio
+      id="radio2"
+      name="radio"
+      value="radio2"
+      :disabled="invalid"
+      description="Radio 2"
+      t-label-classes=""
+      t-description-classes=""
+      t-input-classes=""
+      t-error-classes=""
+      @change="(value) => (radio = value)"
     />
     <VButton type="submit" class="" :disabled="invalid" variant="secondary"
       >Enviar</VButton
@@ -33,7 +67,7 @@ import eyeSVG from '@/static/icons/eye.svg'
 export default {
   name: 'IndexPage',
   data() {
-    return { model: '', eyeSVG }
+    return { text: '', checkbox: true, radio: '', eyeSVG }
   },
   methods: {
     handleSubmit() {},

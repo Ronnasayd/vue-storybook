@@ -11,7 +11,7 @@
       <p
         :class="[
           getAttr('t-description-classes'),
-          'mb-1 text-s2 sm:text-s3 text-extra-0 c-disabled:text-extra-4 ',
+          'mb-1 text-s2 sm:text-s3 text-extra-5 c-disabled:text-extra-4 font-bold',
         ]"
       >
         {{ getAttr('description') }}
@@ -20,7 +20,7 @@
         :class="[
           getAttr('t-input-wrapper-classes'),
           customVariantClasse('input-wrapper'),
-          'error:c-focus:border-error primary:c-focus:border-primary-2 secondary:c-focus:border-secondary-2 c-focus:border-primary-2 error:border-error error:text-error l-inline-start-center-nowrap gap-1 text-extra-0 w-full border border-[#E0E0E0] rounded-[10px] h-[46px] p-2 placeholder:text-[#B3B3B3] mb-2 c-disabled:text-extra-4 c-disabled:bg-[#E2E2E2]',
+          'error:c-focus:border-error-dark primary:c-focus:border-primary-2 secondary:c-focus:border-secondary-2 c-focus:border-primary-2 error:border-error-dark error:text-error-dark l-inline-start-center-nowrap gap-1  w-full border border-[#E0E0E0] rounded-[10px] h-[46px] text-extra-3 p-2 placeholder:text-[#B3B3B3] mb-2 c-disabled:text-extra-3 c-disabled:bg-[#E2E2E2]',
         ]"
       >
         <img
@@ -35,7 +35,7 @@
           :name="id"
           :class="[
             getAttr('t-input-classes'),
-            'w-full h-full focus:outline-none ',
+            'w-full h-full focus:ring-0 focus:border-none focus:outline-none disabled:bg-[#E2E2E2] border-none text-extra-5',
           ]"
           @change="onChange"
           @input="onInput"
@@ -49,7 +49,7 @@
           @click="onRightIconClick"
         />
       </div>
-      <small :class="[getAttr('t-error-classes'), 'text-error']">{{
+      <small :class="[getAttr('t-error-classes'), 'text-error-dark']">{{
         errors[0]
       }}</small>
     </label>
