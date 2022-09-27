@@ -2,7 +2,7 @@
   <ValidationProvider v-slot="{ errors }" tag="div" :rules="getAttr('rules')">
     <label
       :for="id"
-      :class="[getAttr('t-label-class'), 'l-stack-start group']"
+      :class="[getAttr('t-label-class'), 'group l-stack-start']"
       :data-disabled="disabled"
       :data-error="!!errors[0]"
       :data-variant="variant"
@@ -11,7 +11,7 @@
       <p
         :class="[
           getAttr('t-description-class'),
-          'mb-1 text-s2 sm:text-s3 text-extra-5 group-c-disabled:text-extra-4 font-bold',
+          'mb-1 text-s2 font-bold text-extra-5 group-c-disabled:text-extra-4 sm:text-s3',
         ]"
       >
         {{ getAttr('description') }}
@@ -20,13 +20,13 @@
         :class="[
           getAttr('t-input-wrapper-class'),
           customVariantClasse('input-wrapper'),
-          'group-error:group-c-focus:border-error-dark group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-c-focus:border-primary-2 group-error:border-error-dark group-error:text-error-dark l-inline-start-center-nowrap gap-1  w-full border border-[#E0E0E0] rounded-[10px] h-[46px] text-extra-3 p-2 placeholder:text-[#B3B3B3] mb-2 group-c-disabled:text-extra-3 group-c-disabled:bg-[#E2E2E2]',
+          'mb-2 h-[46px] w-full gap-1 rounded-[10px] border border-[#E0E0E0] p-2 text-extra-3 l-inline-start-center-nowrap placeholder:text-[#B3B3B3] group-c-focus:border-primary-2 group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-error:border-error-dark group-error:text-error-dark group-error:group-c-focus:border-error-dark group-c-disabled:bg-[#E2E2E2] group-c-disabled:text-extra-3 ',
         ]"
       >
         <img
           v-if="!!getAttr('left-icon')"
           :src="getAttr('left-icon')"
-          :class="[getAttr('t-left-icon-class'), 'w-[24px] h-[24px]']"
+          :class="[getAttr('t-left-icon-class'), 'h-[24px] w-[24px]']"
           @click="onLeftIconClick"
         />
         <input
@@ -35,7 +35,7 @@
           :name="id"
           :class="[
             getAttr('t-input-class'),
-            'w-full h-full focus:ring-0 focus:border-none focus:outline-none disabled:bg-[#E2E2E2] border-none text-extra-5',
+            'h-full w-full border-none text-extra-5 focus:border-none focus:outline-none focus:ring-0 disabled:bg-[#E2E2E2]',
           ]"
           @change="onChange"
           @input="onInput"
@@ -45,7 +45,7 @@
         <img
           v-if="!!getAttr('right-icon')"
           :src="getAttr('right-icon')"
-          :class="[getAttr('t-right-icon-class'), 'w-[24px] h-[24px]']"
+          :class="[getAttr('t-right-icon-class'), 'h-[24px] w-[24px]']"
           @click="onRightIconClick"
         />
       </div>
@@ -121,4 +121,3 @@ export default {
   },
 }
 </script>
-

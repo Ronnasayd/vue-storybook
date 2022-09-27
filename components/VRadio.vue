@@ -5,7 +5,7 @@
       :for="id"
       :class="[
         getAttr('t-label-class'),
-        'group l-inline-start-center gap-2 cursor-pointer select-none c-disabled:cursor-default',
+        'group cursor-pointer select-none gap-2 l-inline-start-center c-disabled:cursor-default',
       ]"
     >
       <input
@@ -14,7 +14,7 @@
         :value="getAttr('value')"
         :class="[
           getAttr('t-input-class'),
-          `w-4 h-4 focus:outline-none focus:ring-0 focus:ring-transparent border border-extra-4 checked:bg-primary-2 checked:hover:bg-primary-2 checked:focus:bg-primary-2 disabled:checked:bg-extra-3 disabled:cursor-default cursor-pointer checked:bg-check rounded-full`,
+          `h-4 w-4 cursor-pointer rounded-full border border-extra-4 checked:bg-primary-2 checked:bg-check checked:hover:bg-primary-2 focus:outline-none focus:ring-0 focus:ring-transparent checked:focus:bg-primary-2 disabled:cursor-default disabled:checked:bg-extra-3`,
         ]"
         @change="onChange"
         @input="onInput"
@@ -62,5 +62,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -6,7 +6,7 @@
       :for="id"
       :class="[
         getAttr('t-label-class'),
-        'group l-inline-start-center gap-2 cursor-pointer select-none c-disabled:cursor-default',
+        'group cursor-pointer select-none gap-2 l-inline-start-center c-disabled:cursor-default',
       ]"
     >
       <input
@@ -22,13 +22,13 @@
       <div
         :class="[
           getAttr('t-slider-container-class'),
-          'rounded-full border border-extra-4 w-[64px] h-[32px] p-[3px]',
+          'h-[32px] w-[64px] rounded-full border border-extra-4 p-[3px]',
         ]"
       >
         <div
           :class="[
             getAttr('t-slider-content-class'),
-            'bg-primary-2 w-[24px] h-[24px] rounded-full transition-all mr-auto group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-4',
+            'mr-auto h-[24px] w-[24px] rounded-full bg-primary-2 transition-all group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-4',
           ]"
         ></div>
       </div>
@@ -74,5 +74,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
