@@ -1,7 +1,7 @@
 <template>
   <ValidationObserver v-slot="{ handleSubmit, invalid, errors }">
     <form
-      :class="[getAttr('t-form-classes'), 'w-full']"
+      :class="[getAttr('t-form-class'), 'w-full group']"
       @submit.prevent="handleSubmit(onSubmit)"
     >
       <slot :invalid="invalid" , :errors="errors" />

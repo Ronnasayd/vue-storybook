@@ -2,6 +2,7 @@
   <ValidationProvider v-slot="{ errors }" tag="div" :rules="getAttr('rules')">
     <label
       :data-disabled="disabled"
+      :data-checked="getAttr('value')"
       :for="id"
       :class="[
         getAttr('t-label-class'),
@@ -14,13 +15,23 @@
         v-bind="{ ...$props }"
         :value="getAttr('value')"
         :checked="getAttr('value')"
-        :class="[
-          getAttr('t-input-class'),
-          `rounded w-4 h-4 focus:outline-none focus:ring-0 focus:ring-transparent border border-extra-4 checked:bg-primary-2 checked:hover:bg-primary-2 checked:focus:bg-primary-2 disabled:cursor-default disabled:checked:bg-extra-3 cursor-pointer`,
-        ]"
+        :class="['hidden']"
         @change="onChange"
         @input="onInput"
       />
+      <div
+        :class="[
+          getAttr('t-slider-container-class'),
+          'rounded-full border border-extra-4 w-[64px] h-[32px] p-[3px]',
+        ]"
+      >
+        <div
+          :class="[
+            getAttr('t-slider-content-class'),
+            'bg-primary-2 w-[24px] h-[24px] rounded-full transition-all mr-auto group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-4',
+          ]"
+        ></div>
+      </div>
       <p
         :class="[
           getAttr('t-description-class'),

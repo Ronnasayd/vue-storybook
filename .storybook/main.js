@@ -1,4 +1,5 @@
 const path = require('path')
+
 module.exports = {
   staticDirs: ['../static'],
   stories: [
@@ -24,7 +25,6 @@ module.exports = {
           postcssOptions: {
             plugins: [
               require('tailwindcss/nesting'),
-              require('../postcss-remove-custom-variants'),
               require('tailwindcss')(
                 path.join(__dirname, '..', 'tailwind.config.js')
               ),
@@ -36,6 +36,7 @@ module.exports = {
     },
   ],
   framework: '@storybook/vue',
+
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.postcss$/,
@@ -48,7 +49,6 @@ module.exports = {
             postcssOptions: {
               plugins: [
                 require('tailwindcss/nesting'),
-                require('../postcss-remove-custom-variants'),
                 require('tailwindcss'),
                 require('autoprefixer'),
               ],

@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import VRadio from '../components/VRadio.vue'
+import VSlider from '../components/VSlider.vue'
 
 export default {
-  title: 'Documentation/VRadio',
-  component: VRadio,
+  title: 'Documentation/VSlider',
+  component: VSlider,
   argTypes: {
     variant: {
       control: { type: 'select' },
@@ -14,13 +14,13 @@ export default {
 
 const Template = (args) => {
   return {
-    components: { VRadio },
+    components: { VSlider },
     data() {
       return { model: '', args }
     },
     props: Object.keys(args),
     template: `
-      <VRadio 
+      <VSlider 
         v-model="model" 
         v-bind="{...args,...$props}" 
         @input="onInput"
@@ -36,13 +36,13 @@ const Template = (args) => {
 export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
-  id: 'input-radio',
+  id: 'input-slider',
   description: 'Description',
-  name: 'radio',
   disabled: false,
   rules: '',
   't-label-class': '',
   't-description-class': '',
-  't-input-class': '',
+  't-slider-container-class': '',
+  't-slider-content-class': '',
   't-error-class': '',
 }

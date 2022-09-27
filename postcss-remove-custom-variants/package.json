@@ -1,9 +1,0 @@
-{
-  "name": "postcss-remove-custom-variants",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "postcss": "^8.4.16"
-  }
-}

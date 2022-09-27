@@ -29,5 +29,5 @@ const Template = (args) => {
 export const Default = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Default.args = {
-  't-form-classes': 'max-w-[400px]',
+  't-form-class': 'max-w-[400px]',
 }

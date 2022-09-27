@@ -6,7 +6,7 @@ export default {
   component: VButton,
   argTypes: {
     class: {
-      description: 'button custom classes',
+      description: 'button custom class',
       table: {
         category: 'Attributes',
         type: {

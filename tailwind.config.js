@@ -73,27 +73,19 @@ module.exports = {
         'outline_secondary',
       ]
       variants.forEach((variant) => {
-        addVariant(variant, [
-          `&[data-variant=${variant}]`,
-          `[data-variant=${variant}] &`,
-          `[data-variant=${variant}]&`,
+        addVariant(variant, [`&[data-variant=${variant}]`])
+        addVariant(`group-${variant}`, [
+          `:merge(.group)[data-variant=${variant}] &`,
         ])
       })
-      addVariant('c-focus', [
-        '&[data-focus=true]',
-        '[data-focus=true] &',
-        '[data-focus=true]&',
-      ])
-      addVariant('error', [
-        `&[data-error=true]`,
-        '[data-error=true] &',
-        '[data-error=true]&',
-      ])
-      addVariant('c-disabled', [
-        '&[data-disabled=true]',
-        '[data-disabled=true] &',
-        '[data-disabled=true]&',
-      ])
+      addVariant('c-checked', ['&[data-checked=true]'])
+      addVariant('group-c-checked', [':merge(.group)[data-checked=true] &'])
+      addVariant('c-focus', ['&[data-focus=true]'])
+      addVariant('group-c-focus', [':merge(.group)[data-focus=true] &'])
+      addVariant('error', [`&[data-error=true]`])
+      addVariant('group-error', [':merge(.group)[data-error=true] &'])
+      addVariant('c-disabled', ['&[data-disabled=true]'])
+      addVariant('group-c-disabled', [':merge(.group)[data-disabled=true] &'])
     }),
     plugin(function ({ addUtilities, theme }) {
       const justifyContent = {

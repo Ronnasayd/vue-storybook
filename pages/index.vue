@@ -1,7 +1,7 @@
 <template>
   <VForm
     v-slot="{ invalid }"
-    t-form-classes="p-4 max-w-[400px]"
+    t-form-class="p-4 max-w-[400px]"
     @submit="handleSubmit"
   >
     <VInput
@@ -13,13 +13,13 @@
       placeholder="description"
       left-icon=""
       :right-icon="eyeSVG"
-      t-label-classes=""
-      t-description-classes=""
-      t-input-wrapper-classes=""
-      t-left-icon-classes=""
-      t-input-classes=""
-      t-right-icon-classes=""
-      t-error-classes=""
+      t-label-class=""
+      t-description-class=""
+      t-input-wrapper-class=""
+      t-left-icon-class=""
+      t-input-class=""
+      t-right-icon-class=""
+      t-error-class=""
       max-length=""
     />
     <VCheckbox
@@ -27,10 +27,10 @@
       v-model="checkbox"
       :disabled="invalid"
       description="Description"
-      t-label-classes=""
-      t-description-classes=""
-      t-input-classes=""
-      t-error-classes=""
+      t-label-class=""
+      t-description-class=""
+      t-input-class=""
+      t-error-class=""
     />
     <VRadio
       id="radio1"
@@ -38,10 +38,10 @@
       name="radio"
       :disabled="invalid"
       description="Radio 1"
-      t-label-classes=""
-      t-description-classes=""
-      t-input-classes=""
-      t-error-classes=""
+      t-label-class=""
+      t-description-class=""
+      t-input-class=""
+      t-error-class=""
       @change="(value) => (radio = value)"
     />
     <VRadio
@@ -50,11 +50,22 @@
       value="radio2"
       :disabled="invalid"
       description="Radio 2"
-      t-label-classes=""
-      t-description-classes=""
-      t-input-classes=""
-      t-error-classes=""
+      t-label-class=""
+      t-description-class=""
+      t-input-class=""
+      t-error-class=""
       @change="(value) => (radio = value)"
+    />
+    <VSlider
+      id="slider"
+      v-model="slider"
+      description="Slider description"
+      :disabled="invalid"
+      t-label-class=""
+      t-description-class=""
+      t-slider-container-class=""
+      t-slider-content-class=""
+      t-error-class=""
     />
     <VButton type="submit" class="" :disabled="invalid" variant="secondary"
       >Enviar</VButton
@@ -67,7 +78,7 @@ import eyeSVG from '@/static/icons/eye.svg'
 export default {
   name: 'IndexPage',
   data() {
-    return { text: '', checkbox: true, radio: '', eyeSVG }
+    return { text: '', checkbox: true, slider: false, radio: '', eyeSVG }
   },
   methods: {
     handleSubmit() {},

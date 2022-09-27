@@ -4,8 +4,8 @@
       :data-disabled="disabled"
       :for="id"
       :class="[
-        getAttr('t-label-classes'),
-        'l-inline-start-center gap-2 cursor-pointer select-none c-disabled:cursor-default',
+        getAttr('t-label-class'),
+        'group l-inline-start-center gap-2 cursor-pointer select-none c-disabled:cursor-default',
       ]"
     >
       <input
@@ -13,7 +13,7 @@
         v-bind="{ ...$props }"
         :value="getAttr('value')"
         :class="[
-          getAttr('t-input-classes'),
+          getAttr('t-input-class'),
           `w-4 h-4 focus:outline-none focus:ring-0 focus:ring-transparent border border-extra-4 checked:bg-primary-2 checked:hover:bg-primary-2 checked:focus:bg-primary-2 disabled:checked:bg-extra-3 disabled:cursor-default cursor-pointer checked:bg-check rounded-full`,
         ]"
         @change="onChange"
@@ -21,14 +21,14 @@
       />
       <p
         :class="[
-          getAttr('t-description-classes'),
-          'text-extra-5 c-disabled:text-extra-4',
+          getAttr('t-description-class'),
+          'text-extra-5 group-c-disabled:text-extra-4',
         ]"
       >
         {{ getAttr('description') }}
       </p></label
     >
-    <small :class="[getAttr('t-error-classes'), 'text-error-dark']">{{
+    <small :class="[getAttr('t-error-class'), 'text-error-dark']">{{
       errors[0]
     }}</small>
   </ValidationProvider>

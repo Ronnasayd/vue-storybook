@@ -30,6 +30,7 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    'nuxt-vite',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,7 +42,6 @@ export default {
     postcss: {
       plugins: {
         'tailwindcss/nesting': {},
-        '../postcss-remove-custom-variants': {},
         tailwindcss: join(__dirname, 'tailwind.config.js'),
         autoprefixer: {},
       },
