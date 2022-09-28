@@ -22,12 +22,7 @@
           'mb-2 h-[46px] w-full gap-1 rounded-[10px] border border-[#E0E0E0] p-2 text-extra-3 l-inline-start-center-nowrap placeholder:text-[#B3B3B3] group-c-focus:border-primary-2 group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-error:border-error-dark group-error:text-error-dark group-error:group-c-focus:border-error-dark group-c-disabled:bg-[#E2E2E2] group-c-disabled:text-extra-3 ',
         ]"
       >
-        <img
-          v-if="!!getAttr('left-icon')"
-          :src="getAttr('left-icon')"
-          :class="[getAttr('t-left-icon-class'), 'h-[24px] w-[24px]']"
-          @click="onLeftIconClick"
-        />
+        <slot name="left"></slot>
         <input
           v-bind="{
             ...$props,
@@ -36,19 +31,14 @@
           :name="id"
           :class="[
             getAttr('t-input-class'),
-            'h-full w-full border-none text-extra-5 focus:border-none focus:outline-none focus:ring-0 disabled:bg-[#E2E2E2]',
+            'h-full w-full border-none p-0 text-extra-5 focus:border-none focus:outline-none focus:ring-0 disabled:bg-[#E2E2E2]',
           ]"
           @change="onChange"
           @input="onInput"
           @focus="handleFocus"
           @focusout="handleFocusOut"
         />
-        <img
-          v-if="!!getAttr('right-icon')"
-          :src="getAttr('right-icon')"
-          :class="[getAttr('t-right-icon-class'), 'h-[24px] w-[24px]']"
-          @click="onRightIconClick"
-        />
+        <slot name="right"></slot>
       </div>
       <small :class="[getAttr('t-error-class'), 'text-error-dark']">{{
         errors[0]
@@ -97,13 +87,6 @@ export default {
     onInput(event) {
       this.$emit('input', event.target.value)
     },
-    onLeftIconClick(event) {
-      this.$emit('leftIconClick')
-    },
-    onRightIconClick(event) {
-      this.$emit('rightIconClick')
-    },
-
     /**
      * @param {string} attr
      */

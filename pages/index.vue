@@ -11,17 +11,17 @@
       rules="required"
       variant="secondary"
       placeholder="description"
-      left-icon=""
-      :right-icon="eyeSVG"
       t-label-class=""
       t-description-class=""
       t-input-wrapper-class=""
-      t-left-icon-class=""
       t-input-class=""
-      t-right-icon-class="cursor-pointer"
       t-error-class=""
       max-length=""
-    />
+    >
+      <template #right>
+        <img :src="eyeSVG" class="h-6 w-6" />
+      </template>
+    </VInput>
     <VCheckbox
       id="checkbox"
       v-model="checkbox"

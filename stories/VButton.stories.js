@@ -64,7 +64,7 @@ const Template = (args, { argTypes }) => {
     template: `
     <VButton 
       @click="onClick" 
-      v-bind="{...args,...$props}"  
+      v-bind="{...$props,...args}"  
     >{{text}}</VButton>`,
     methods: {
       onClick: action('click'),

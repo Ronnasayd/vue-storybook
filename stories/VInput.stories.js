@@ -1,6 +1,6 @@
+/* eslint-disable import/order */
 import { action } from '@storybook/addon-actions'
 import VInput from '../components/VInput.vue'
-import Icon from '../static/icons/eye.svg'
 
 export default {
   title: 'Documentation/VInput',
@@ -30,14 +30,14 @@ const Template = (args) => {
         v-bind="{...args,...$props}" 
         @input="onInput"
         @change="onChange"
-        @leftIconClick="onLeftIconClick"
-        @rightIconClick="onRightIconClick"
-      />`,
+      >
+        <template v-slot:right>
+          <svg class="w-7 h-7" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.94 15.66A16.69 16.69 0 0 0 16 5 16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66 1 1 0 0 0 0-.68ZM16 25c-5.3 0-10.9-3.93-12.93-9C5.1 10.93 10.7 7 16 7s10.9 3.93 12.93 9C26.9 21.07 21.3 25 16 25Z" fill="#AFAFAF"/><path d="M16 10a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm0 10a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" fill="#AFAFAF"/></svg>
+        </template>
+      </VInput>`,
     methods: {
       onChange: action('change'),
       onInput: action('input'),
-      onLeftIconClick: action('leftIconClick'),
-      onRightIconClick: action('rightIconClick'),
     },
   }
 }
@@ -55,12 +55,8 @@ Default.args = {
   't-label-class': 'max-w-[400px]',
   't-description-class': '',
   't-input-wrapper-class': '',
-  't-left-icon-class': '',
-  't-right-icon-class': '',
   't-input-class': '',
   't-error-class': '',
-  'left-icon': Icon,
-  'right-icon': '',
   min: '',
   max: '',
   maxLength: '',
