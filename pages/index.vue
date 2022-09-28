@@ -18,7 +18,7 @@
       t-input-wrapper-class=""
       t-left-icon-class=""
       t-input-class=""
-      t-right-icon-class=""
+      t-right-icon-class="cursor-pointer"
       t-error-class=""
       max-length=""
     />

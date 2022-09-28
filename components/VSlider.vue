@@ -22,13 +22,13 @@
       <div
         :class="[
           getAttr('t-slider-container-class'),
-          'h-[32px] w-[64px] rounded-full border border-extra-4 p-[3px]',
+          'h-[32px] w-[64px] rounded-full border border-primary-2 bg-primary-0  p-[3px] group-c-disabled:border-extra-3 group-c-disabled:bg-extra-2',
         ]"
       >
         <div
           :class="[
             getAttr('t-slider-content-class'),
-            'mr-auto h-[24px] w-[24px] rounded-full bg-primary-2 transition-all group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-4',
+            'mr-auto h-[24px] w-[24px] rounded-full bg-primary-2 transition-all group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-3',
           ]"
         ></div>
       </div>

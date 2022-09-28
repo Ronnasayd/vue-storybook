@@ -30,7 +30,9 @@
           @click="onLeftIconClick"
         />
         <input
-          v-bind="{ ...$props }"
+          v-bind="{
+            ...$props,
+          }"
           :value="getAttr('value')"
           :name="id"
           :class="[
