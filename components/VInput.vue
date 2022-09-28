@@ -19,7 +19,6 @@
       <div
         :class="[
           getAttr('t-input-wrapper-class'),
-          customVariantClasse('input-wrapper'),
           'mb-2 h-[46px] w-full gap-1 rounded-[10px] border border-[#E0E0E0] p-2 text-extra-3 l-inline-start-center-nowrap placeholder:text-[#B3B3B3] group-c-focus:border-primary-2 group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-error:border-error-dark group-error:text-error-dark group-error:group-c-focus:border-error-dark group-c-disabled:bg-[#E2E2E2] group-c-disabled:text-extra-3 ',
         ]"
       >
@@ -116,9 +115,6 @@ export default {
     },
     handleFocusOut() {
       this.focusState = false
-    },
-    customVariantClasse(prefix) {
-      return this.variant ? prefix + '-' + this.variant : ''
     },
   },
 }
