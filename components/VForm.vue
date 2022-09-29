@@ -10,18 +10,16 @@
 </template>
 <script>
 import { ValidationObserver } from 'vee-validate'
-
+import custom from '@/mixins/custom'
 export default {
   name: 'VForm',
   components: {
     ValidationObserver,
   },
+  mixins: [custom],
   methods: {
     onSubmit() {
       this.$emit('submit')
-    },
-    getAttr(attr) {
-      return this.$attrs?.[attr] ?? ''
     },
   },
 }

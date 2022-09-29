@@ -49,21 +49,17 @@
 
 <script>
 import { ValidationProvider } from 'vee-validate'
+import custom from '@/mixins/custom'
 export default {
   components: {
     ValidationProvider,
   },
+  mixins: [custom],
   props: {
     id: { type: String, required: true },
     disabled: { type: Boolean, default: false },
   },
   methods: {
-    /**
-     * @param {string} attr
-     */
-    getAttr(attr) {
-      return this.$attrs?.[attr] ?? ''
-    },
     onChange(event) {
       this.$emit('change', event.target.checked)
     },

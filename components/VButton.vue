@@ -17,7 +17,9 @@
 </template>
 
 <script>
+import custom from '@/mixins/custom'
 export default {
+  mixins: [custom],
   props: {
     type: {
       type: String,
@@ -39,9 +41,6 @@ export default {
     disabled: { type: Boolean, default: false },
   },
   methods: {
-    getAttr(attr) {
-      return this.$attrs?.[attr] ?? ''
-    },
     onClick() {
       this.$emit('click')
     },

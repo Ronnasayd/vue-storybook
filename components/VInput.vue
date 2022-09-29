@@ -48,11 +48,13 @@
 </template>
 <script>
 import { ValidationProvider } from 'vee-validate'
+import custom from '@/mixins/custom'
 export default {
   name: 'VInput',
   components: {
     ValidationProvider,
   },
+  mixins: [custom],
 
   props: {
     type: {
@@ -87,12 +89,7 @@ export default {
     onInput(event) {
       this.$emit('input', event.target.value)
     },
-    /**
-     * @param {string} attr
-     */
-    getAttr(attr) {
-      return this.$attrs?.[attr] ?? ''
-    },
+
     handleFocus() {
       this.focusState = true
     },
