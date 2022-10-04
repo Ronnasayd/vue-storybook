@@ -11,7 +11,7 @@
       <p
         :class="[
           getAttr('t-description-class'),
-          'mb-1 text-s2 font-bold text-extra-5 group-c-disabled:text-extra-4 sm:text-s3',
+          'mb-1 pl-3 text-s2 font-bold text-extra-5 group-c-disabled:text-extra-4 sm:text-s3',
         ]"
       >
         {{ getAttr('description') }}
