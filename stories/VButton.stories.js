@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import VButton from '../components/VButton.vue'
 
 export default {
-  title: 'Documentation/VButton',
+  title: 'Components/VButton',
   component: VButton,
   argTypes: {
     class: {

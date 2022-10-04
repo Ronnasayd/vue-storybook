@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import VRadio from '../components/VRadio.vue'
 
 export default {
-  title: 'Documentation/VRadio',
+  title: 'Components/VRadio',
   component: VRadio,
   argTypes: {
     variant: {

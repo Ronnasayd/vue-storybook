@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions'
 import VInput from '../components/VInput.vue'
 
 export default {
-  title: 'Documentation/VInput',
+  title: 'Components/VInput',
   component: VInput,
   argTypes: {
     type: {

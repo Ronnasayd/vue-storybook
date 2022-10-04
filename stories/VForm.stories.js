@@ -4,7 +4,7 @@ import VForm from '../components/VForm.vue'
 import VInput from '../components/VInput.vue'
 
 export default {
-  title: 'Documentation/VForm',
+  title: 'Components/VForm',
   component: VForm,
 }
 

@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import VCheckbox from '../components/VCheckbox.vue'
 
 export default {
-  title: 'Documentation/VCheckbox',
+  title: 'Components/VCheckbox',
   component: VCheckbox,
   argTypes: {
     variant: {
