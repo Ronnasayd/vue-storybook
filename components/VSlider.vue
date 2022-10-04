@@ -3,6 +3,7 @@
     <label
       :data-disabled="disabled"
       :data-checked="getAttr('value')"
+      :data-variant="variant"
       :for="id"
       :class="[
         getAttr('t-label-class'),
@@ -22,13 +23,13 @@
       <div
         :class="[
           getAttr('t-slider-container-class'),
-          'h-[32px] w-[64px] rounded-full border border-primary-2 bg-primary-0  p-[3px] group-c-disabled:border-extra-3 group-c-disabled:bg-extra-2',
+          'h-[32px] w-[64px] rounded-full border border-primary-2 bg-primary-0 p-[3px]  group-secondary:border-secondary-2 group-secondary:bg-secondary-0 group-c-disabled:border-extra-3 group-c-disabled:bg-extra-2',
         ]"
       >
         <div
           :class="[
             getAttr('t-slider-content-class'),
-            'mr-auto h-[24px] w-[24px] rounded-full bg-primary-2 transition-all group-c-checked:ml-auto group-c-checked:mr-0 group-c-checked:bg-check group-c-disabled:bg-extra-3',
+            'h-[24px] w-[24px] translate-x-0 rounded-full bg-primary-2 transition-all duration-300 group-secondary:bg-secondary-2  group-c-checked:translate-x-[132%] group-c-checked:bg-check group-c-disabled:bg-extra-3',
           ]"
         ></div>
       </div>
@@ -58,6 +59,11 @@ export default {
   props: {
     id: { type: String, required: true },
     disabled: { type: Boolean, default: false },
+    variant: {
+      type: String,
+      default: '',
+      validator: (value) => ['primary', 'secondary', ''].includes(value),
+    },
   },
   methods: {
     onChange(event) {

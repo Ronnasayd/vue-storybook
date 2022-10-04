@@ -39,7 +39,7 @@
           <svg
             :class="[
               getAttr('t-arrow-class'),
-              'h-4 w-4 stroke-primary-2 transition-all duration-500 group-c-focus:rotate-180 group-error:stroke-error-dark',
+              'h-4 w-4 stroke-primary-2 transition-all duration-500 group-secondary:stroke-secondary-2 group-c-focus:rotate-180 group-error:stroke-error-dark',
             ]"
             viewBox="0 0 16 9"
             fill="none"
@@ -116,9 +116,9 @@ export default {
         this.focusState = false
     },
     handleSelect(option) {
+      this.focusState = false
       this.$emit('input', option)
       this.$emit('change', option)
-      this.focusState = false
     },
   },
 }
