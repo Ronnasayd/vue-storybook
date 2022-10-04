@@ -46,6 +46,27 @@
             </svg>
           </template>
         </VInput>
+        <VSelect
+          id="select"
+          v-model.lazy="select"
+          description="Description"
+          rules="required"
+          variant="primary"
+          :options="[
+            { key: '1', value: 'option 1' },
+            { key: '2', value: 'option 2' },
+          ]"
+          placeholder="Selecione ..."
+          t-label-class=""
+          t-description-class=""
+          t-select-wrapper-class=""
+          t-selected-class=""
+          t-arrow-class=""
+          t-error-class=""
+          t-options-class=""
+          t-option-class=""
+          max-length=""
+        ></VSelect>
         <VCheckbox
           id="checkbox"
           v-model="checkbox"
@@ -106,6 +127,7 @@ export default {
   data() {
     return {
       text: '',
+      select: '',
       checkbox: true,
       slider: false,
       radio: '',
