@@ -25,15 +25,10 @@ const Template = (args) => {
         v-model.lazy="model" 
         v-bind="{...args,...$props}" 
         @input="onInput"
-        @change="onChange"
-        :options="[
-          { key: '1', value: 'option 1' },
-          { key: '2', value: 'option 2' },
-        ]"
+        :options="{ '1': 'option 1', '2': 'option 2' }"
       >
       </VSelect>`,
     methods: {
-      onChange: action('change'),
       onInput: action('input'),
     },
   }

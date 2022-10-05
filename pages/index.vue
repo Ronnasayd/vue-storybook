@@ -52,10 +52,7 @@
           description="Description"
           rules="required"
           variant="primary"
-          :options="[
-            { key: '1', value: 'option 1' },
-            { key: '2', value: 'option 2' },
-          ]"
+          :options="{ '1': 'option 1', '2': 'option 2' }"
           placeholder="Selecione ..."
           t-label-class=""
           t-description-class=""
@@ -137,6 +134,9 @@ export default {
   },
   methods: {
     handleSubmit() {},
+    handleTest(event) {
+      console.log({ event })
+    },
   },
 }
 </script>
