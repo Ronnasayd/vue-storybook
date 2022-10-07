@@ -4,7 +4,7 @@
       :data-disabled="disabled"
       :for="id"
       :class="[
-        getAttr('t-label-class'),
+        getAttr('t-label-wrapper-class'),
         'group cursor-pointer select-none gap-2 l-inline-start-center c-disabled:cursor-default',
       ]"
     >
@@ -15,7 +15,7 @@
         :value="getAttr('value')"
         :checked="getAttr('value')"
         :class="[
-          getAttr('t-input-class'),
+          getAttr('t-form-control-class'),
           `h-4 w-4 cursor-pointer rounded border border-extra-4 checked:bg-primary-2 checked:hover:bg-primary-2 focus:outline-none focus:ring-0 focus:ring-transparent checked:focus:bg-primary-2 disabled:cursor-default disabled:checked:bg-extra-3`,
         ]"
         @change="onChange"
@@ -23,14 +23,14 @@
       />
       <p
         :class="[
-          getAttr('t-description-class'),
+          getAttr('t-label-text-class'),
           'text-extra-5 group-c-disabled:text-extra-4',
         ]"
       >
         {{ getAttr('description') }}
       </p></label
     >
-    <small :class="[getAttr('t-error-class'), 'text-error-dark']">{{
+    <small :class="[getAttr('t-error-message-class'), 'text-error-dark']">{{
       errors[0]
     }}</small>
   </ValidationProvider>

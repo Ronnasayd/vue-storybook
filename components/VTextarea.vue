@@ -16,30 +16,21 @@
       >
         {{ getAttr('description') }}
       </p>
-      <div
+      <textarea
+        v-bind="{
+          ...$props,
+        }"
+        :value="getAttr('value')"
+        :name="id"
         :class="[
-          getAttr('t-form-control-wrapper-class'),
-          'mb-2 h-[46px] w-full gap-1 rounded-[10px] border border-[#E0E0E0] p-2 text-extra-3 l-inline-start-center-nowrap placeholder:text-[#B3B3B3] group-c-focus:border-primary-2 group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-error:border-error-dark group-error:text-error-dark group-error:group-c-focus:border-error-dark group-c-disabled:bg-[#E2E2E2] group-c-disabled:text-extra-3 ',
+          getAttr('t-form-control-class'),
+          'mb-2 h-[46px]  min-h-[64px] w-full gap-1 rounded-[10px] border border-[#E0E0E0] p-2  text-extra-5 l-inline-start-center-nowrap placeholder:text-[#B3B3B3] focus:outline-none focus:ring-0 disabled:bg-[#E2E2E2] group-c-focus:border-primary-2 group-primary:group-c-focus:border-primary-2 group-secondary:group-c-focus:border-secondary-2 group-error:border-error-dark group-error:text-error-dark group-error:group-c-focus:border-error-dark group-c-disabled:bg-[#E2E2E2] group-c-disabled:text-extra-3',
         ]"
-      >
-        <slot name="left"></slot>
-        <input
-          v-bind="{
-            ...$props,
-          }"
-          :value="getAttr('value')"
-          :name="id"
-          :class="[
-            getAttr('t-form-control-class'),
-            'h-full w-full border-none p-0 text-extra-5 focus:border-none focus:outline-none focus:ring-0 disabled:bg-[#E2E2E2]',
-          ]"
-          @change="onChange"
-          @input="onInput"
-          @focus="handleFocus"
-          @focusout="handleFocusOut"
-        />
-        <slot name="right"></slot>
-      </div>
+        @change="onChange"
+        @input="onInput"
+        @focus="handleFocus"
+        @focusout="handleFocusOut"
+      />
       <small :class="[getAttr('t-error-message-class'), 'text-error-dark']">{{
         errors[0]
       }}</small>

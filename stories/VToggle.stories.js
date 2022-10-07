@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import VSlider from '../components/VSlider.vue'
+import VToggle from '../components/VToggle.vue'
 
 export default {
-  title: 'Components/VSlider',
-  component: VSlider,
+  title: 'Components/VToggle',
+  component: VToggle,
   argTypes: {
     variant: {
       control: { type: 'select' },
@@ -14,13 +14,13 @@ export default {
 
 const Template = (args) => {
   return {
-    components: { VSlider },
+    components: { VToggle },
     data() {
       return { model: '', args }
     },
     props: Object.keys(args),
     template: `
-      <VSlider 
+      <VToggle 
         v-model="model" 
         v-bind="{...args,...$props}" 
         @input="onInput"
@@ -40,9 +40,9 @@ Default.args = {
   description: 'Description',
   disabled: false,
   rules: '',
-  't-label-class': '',
-  't-description-class': '',
-  't-slider-container-class': '',
-  't-slider-content-class': '',
-  't-error-class': '',
+  't-label-wrapper-class': '',
+  't-label-text-class': '',
+  't-toggle-wrapper-class': '',
+  't-toggle-content-class': '',
+  't-error-message-class': '',
 }

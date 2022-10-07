@@ -40,8 +40,8 @@ Default.args = {
   description: 'Description',
   disabled: false,
   rules: '',
-  't-label-class': '',
-  't-description-class': '',
-  't-input-class': '',
-  't-error-class': '',
+  't-label-wrapper-class': '',
+  't-label-text-class': '',
+  't-form-control-class': '',
+  't-error-message-class': '',
 }

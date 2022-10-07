@@ -1,19 +1,72 @@
 <template>
   <div>
-    <VModal :must-show="mustShowModal" @close="mustShowModal = false">
+    <VModal
+      t-modal-class=""
+      :must-show="mustShowModal"
+      @close="mustShowModal = false"
+    >
       <VCard
         t-card-class="bg-white w-full h-full max-w-[300px] max-h-[300px] p-4"
-        >hello world</VCard
       >
+        <div class="w-full l-inline-end">
+          <button @click="mustShowModal = false">
+            <svg
+              class="h-[16px] w-[16px]"
+              viewBox="0 0 25 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.209.67a2.291 2.291 0 0 1 3.24 0l8.103 8.104L20.655.67a2.291 2.291 0 0 1 3.24 3.24l-8.103 8.103 8.103 8.103a2.291 2.291 0 0 1-3.24 3.24l-8.103-8.103-8.103 8.103a2.291 2.291 0 0 1-3.24-3.24l8.103-8.103L1.209 3.91a2.291 2.291 0 0 1 0-3.24Z"
+                fill="#000"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>hello world</div>
+      </VCard>
     </VModal>
+    <VDropdown
+      t-dropdown-items-wrapper-class="max-w-[300px]"
+      t-dropdown-wrapper-class="m-4"
+      t-dropdown-toggle-wrapper-class=""
+    >
+      <template #toggle> Click me !</template>
+      <template #items>
+        <li class="cursor-pointer p-2 hover:bg-extra-1" @click="handleClick">
+          item 1
+        </li>
+        <li class="cursor-pointer p-2 hover:bg-extra-1" @click="handleClick">
+          item 2
+        </li>
+        <li class="cursor-pointer p-2 hover:bg-extra-1" @click="handleClick">
+          item 3
+        </li>
+      </template>
+    </VDropdown>
     <VButton
       variant="primary"
       class="m-4 max-w-[300px]"
       @click="mustShowModal = true"
       >show modal</VButton
     >
+
     <VCard t-card-class="max-w-[400px] p-4 m-4">
       <VForm v-slot="{ invalid }" t-form-class="" @submit="handleSubmit">
+        <VTextarea
+          id="textarea"
+          v-model.lazy="textarea"
+          description="Description"
+          rules="required"
+          variant="primary"
+          placeholder="description"
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-input-wrapper-class=""
+          t-form-control-class=""
+          t-error-message-class=""
+          max-length=""
+        />
         <VInput
           id="teste"
           v-model.lazy="text"
@@ -21,11 +74,11 @@
           rules="required"
           variant="secondary"
           placeholder="description"
-          t-label-class=""
-          t-description-class=""
-          t-input-wrapper-class=""
-          t-input-class=""
-          t-error-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-form-control-wrapper-class=""
+          t-form-control-class=""
+          t-error-message-class=""
           max-length=""
         >
           <template #right>
@@ -54,12 +107,12 @@
           variant="primary"
           :options="{ '1': 'option 1', '2': 'option 2' }"
           placeholder="Selecione ..."
-          t-label-class=""
-          t-description-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
           t-select-wrapper-class=""
           t-selected-class=""
           t-arrow-class=""
-          t-error-class=""
+          t-error-message-class=""
           t-options-class=""
           t-option-class=""
           max-length=""
@@ -69,10 +122,10 @@
           v-model="checkbox"
           :disabled="invalid"
           description="Description"
-          t-label-class=""
-          t-description-class=""
-          t-input-class=""
-          t-error-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-form-control-class=""
+          t-error-message-class=""
         />
         <VRadio
           id="radio1"
@@ -80,10 +133,10 @@
           name="radio"
           :disabled="invalid"
           description="Radio 1"
-          t-label-class=""
-          t-description-class=""
-          t-input-class=""
-          t-error-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-form-control-class=""
+          t-error-message-class=""
           @change="(value) => (radio = value)"
         />
         <VRadio
@@ -92,22 +145,22 @@
           value="radio2"
           :disabled="invalid"
           description="Radio 2"
-          t-label-class=""
-          t-description-class=""
-          t-input-class=""
-          t-error-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-form-control-class=""
+          t-error-message-class=""
           @change="(value) => (radio = value)"
         />
-        <VSlider
+        <VToggle
           id="slider"
           v-model="slider"
           description="Slider description"
           :disabled="invalid"
-          t-label-class=""
-          t-description-class=""
-          t-slider-container-class=""
-          t-slider-content-class=""
-          t-error-class=""
+          t-label-wrapper-class=""
+          t-label-text-class=""
+          t-toggle-wrapper-class=""
+          t-toggle-content-class=""
+          t-error-message-class=""
         />
         <VButton type="submit" class="" :disabled="invalid" variant="secondary"
           >Enviar</VButton
@@ -129,13 +182,14 @@ export default {
       slider: false,
       radio: '',
       eyeSVG,
+      textarea: '',
       mustShowModal: false,
     }
   },
   methods: {
     handleSubmit() {},
-    handleTest(event) {
-      console.log({ event })
+    handleClick() {
+      console.log('clicked')
     },
   },
 }

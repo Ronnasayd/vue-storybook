@@ -8,7 +8,7 @@
     <div :tabindex="tabindex" @blur="handleBlur(validate)">
       <div
         :class="[
-          getAttr('t-label-class'),
+          getAttr('t-label-wrapper-class'),
           'group cursor-pointer l-stack-start',
         ]"
         :data-disabled="disabled"
@@ -19,7 +19,7 @@
       >
         <p
           :class="[
-            getAttr('t-description-class'),
+            getAttr('t-label-text-class'),
             'mb-1 pl-3 text-s2 font-bold text-extra-5 group-c-disabled:text-extra-4 sm:text-s3',
           ]"
         >
@@ -53,7 +53,7 @@
             </svg>
           </div>
         </div>
-        <small :class="[getAttr('t-error-class'), 'text-error-dark']">{{
+        <small :class="[getAttr('t-error-message-class'), 'text-error-dark']">{{
           errors[0]
         }}</small>
       </div>

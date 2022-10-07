@@ -1,10 +1,10 @@
 <template>
   <div
-    v-show="mustShow"
+    v-if="mustShow"
     ref="modalRef"
     :class="[
       getAttr('t-modal-class'),
-      'absolute top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen bg-[#0000007e] l-inline-center-center',
+      'absolute top-0 left-0 right-0 bottom-0 z-10 h-screen w-screen bg-[#000000a6] l-inline-center-center',
     ]"
     @click="handleClick"
   >
